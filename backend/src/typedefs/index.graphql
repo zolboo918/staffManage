@@ -1,0 +1,19 @@
+scalar Date
+
+type Query {
+  users: [User]!
+  user(id: ID!): User
+  allAdmins: [User]
+  allUsers: [User]
+}
+
+type Mutation {
+  createUser(user: UserCreateInput!): User!
+  updateUser(id: ID!, user: UserUpdateInput!): User!
+  deleteUser(id: ID!): User!
+  login(email: String, password: String): LoginUser
+  register(email: String, password: String, isAdmin: Boolean): User
+  sendResetPasswordTokenEmail(email: String): User
+  checkPasswordToken(email: String, token: String): User
+  changePassword(email: String, newPassword: String): User
+}
